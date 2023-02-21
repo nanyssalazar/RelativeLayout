@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -17,6 +18,8 @@ public class DatosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_datos);
 
         Button bnRegresar = findViewById(R.id.bnRegresar);
+        TextView valorCanal = findViewById(R.id.valorCanal);
+        TextView valorPrograma = findViewById(R.id.valorPrograma);
 
         bnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +34,8 @@ public class DatosActivity extends AppCompatActivity {
             if(extras != null){
                 String canal = extras.getString("canal");
                 String programa = extras.getString("programa");
+                valorCanal.setText(canal);
+                valorPrograma.setText(programa);
                 Snackbar.make(bnRegresar,"lo obtenido es " + canal, Snackbar.LENGTH_LONG).show();
                 Snackbar.make(bnRegresar,"lo obtenido es " + programa, Snackbar.LENGTH_LONG).show();
             }
